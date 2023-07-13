@@ -1,7 +1,7 @@
 <div class="form-container">
   <div class="form-wrapper">
     <h2>Edit Details</h2>
-    <form (ngSubmit)="saveChanges()">
+    <form (ngSubmit)="saveChanges()" #editForm="ngForm">
       <div class="form-group">
         <label for="userName">User Name</label><br />
         <input
@@ -59,12 +59,29 @@
           id="password"
           [(ngModel)]="user.password"
           name="password"
+          class="form-control"
           required
+          #passwordInput="ngModel"
+          [ngClass]="{
+            'is-invalid': passwordInput.touched && passwordInput.invalid
+          }"
         />
+        <div
+          *ngIf="passwordInput.touched && passwordInput.invalid"
+          class="error"
+        >
+          *Password is required
+        </div>
       </div>
 
       <div>
-        <button type="submit" class="form-btn">Save Changes</button>
+        <button
+          type="submit"
+          class="btn form-btn"
+          [disabled]="editForm.invalid"
+        >
+          Save Changes
+        </button>
       </div>
     </form>
   </div>
