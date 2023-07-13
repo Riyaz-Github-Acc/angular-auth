@@ -1,0 +1,12 @@
+label {
+  font-size: 18px;
+  color: white;
+}
+
+.form-group {
+  gap: 5px;
+}
+
+.form-btn {
+  padding: 15px 50px;
+}

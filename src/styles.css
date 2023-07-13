@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #e8ebed;
+}
+
+h2 {
+  padding-bottom: 5px;
+}
+
+a {
+  font-size: 18px;
+  color: white;
+}
+
+a:hover {
+  color: whitesmoke;
+}
+
+.error {
+  font-size: 18px;
+  color: rgb(255, 131, 36);
+}
+
+.from-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+/* Form */
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  background: #077478;
+  padding: 25px 35px;
+}
+
+.form-wrapper h2 {
+  color: whitesmoke;
+  font-size: 35px;
+  margin: 0;
+}
+
+.form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.form-wrapper form .form-group {
+  margin-bottom: 0;
+}
+
+.form-wrapper form .form-group input {
+  font-size: 16px;
+  width: 400px;
+  padding: 10px 15px;
+}
+
+.form-btn {
+  width: 100%;
+  font-size: 18px;
+  background: #052a5d;
+  color: white;
+  margin-top: 10px;
+  padding: 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.form-btn:hover {
+  background: #011c41;
+  color: bisque;
+}

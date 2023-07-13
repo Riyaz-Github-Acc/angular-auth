@@ -1,0 +1,61 @@
+<div class="form-container">
+  <div class="form-wrapper">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="form-group">
+        <input
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="email"
+          name="email"
+          class="form-control"
+          required
+          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+          #emailInput="ngModel"
+          [ngClass]="{
+            'is-invalid': emailInput.touched && emailInput.invalid
+          }"
+        />
+
+        <div *ngIf="emailInput.errors?.['required']">
+          <div *ngIf="emailInput.touched && emailInput.invalid" class="error">
+            *Email is required
+          </div>
+        </div>
+
+        <div *ngIf="emailInput.errors?.['pattern']">
+          <div *ngIf="emailInput.touched && emailInput.invalid" class="error">
+            *Invalid Email
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password"
+          class="form-control"
+          required
+          #passwordInput="ngModel"
+          [ngClass]="{
+            'is-invalid': passwordInput.touched && passwordInput.invalid
+          }"
+        />
+        <div
+          *ngIf="passwordInput.touched && passwordInput.invalid"
+          class="error"
+        >
+          *Password is required
+        </div>
+      </div>
+
+      <button type="submit" class="btn form-btn" [disabled]="loginForm.invalid">
+        Login
+      </button>
+    </form>
+    <a routerLink="/register">Register</a>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+</div>
