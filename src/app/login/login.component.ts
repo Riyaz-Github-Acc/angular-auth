@@ -16,9 +16,8 @@ export class LoginComponent {
 
   login() {
     if (this.authService.login(this.email, this.password)) {
-      this.router.navigate(['/dashboard']); // Redirect to the dashboard on successful login
+      this.router.navigate(['/dashboard']);
     } else {
-      // Show an error message for invalid credentials
       this.errorMessage = 'Invalid email or password';
     }
   }

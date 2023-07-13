@@ -9,6 +9,11 @@ export class AuthService {
     localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
+  getCurrentUser(): any {
+    const user = localStorage.getItem('currentUser');
+    return JSON.parse(user || '{}');
+  }
+
   login(email: string, password: string): boolean {
     const currentUser = this.getCurrentUser();
     return (
@@ -16,11 +21,6 @@ export class AuthService {
       currentUser.email === email &&
       currentUser.password === password
     );
-  }
-
-  getCurrentUser(): any {
-    const user = localStorage.getItem('currentUser');
-    return JSON.parse(user || '{}');
   }
 
   setCurrentUser(user: any): void {
